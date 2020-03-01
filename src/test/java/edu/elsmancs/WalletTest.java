@@ -28,4 +28,10 @@ public class WalletTest{
         assertNotNull(wallet_1.getAddress());
     }
 
+    @Test
+    public void createKeysFromClass(){
+        wallet_1.generateKeyPair();
+        assertNotNull(wallet_1.getAddress());
+    }
+
 }

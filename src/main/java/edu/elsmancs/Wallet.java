@@ -1,5 +1,6 @@
 package edu.elsmancs;
 
+import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.List;
@@ -29,6 +30,12 @@ public class Wallet {
      */
     public PublicKey getAddress() {
         return address;
+    }
+
+	public void generateKeyPair() {
+        KeyPair pair = GenSig.generateKeyPair();
+        this.setSK(pair.getPrivate());
+        this.setAddress(pair.getPublic());
     }
 
 }
