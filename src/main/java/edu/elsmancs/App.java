@@ -1,4 +1,4 @@
-package org.mvpigs.pigcoin;
+package edu.elsmancs;
 
 import java.security.KeyPair;
 import java.util.Map;
