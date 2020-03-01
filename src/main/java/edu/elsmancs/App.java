@@ -26,7 +26,7 @@ public class App {
          * Crea una segunda wallet, esta vez generando sus claves
          * con un metodo wallet.generateKeyPair() que encapsula
          * el codigo de la anterior historia de usuario
-         */
+         
 
         Wallet wallet_2 = new Wallet();
         wallet_2.generateKeyPair();
@@ -35,7 +35,7 @@ public class App {
 
         /**
          * Visualiza las Wallet 1 y 2
-         */
+         
         
         System.out.println("\n" + "Ver Wallets 1 y 2" + "\n" + 
                                   "================="        );
@@ -46,7 +46,7 @@ public class App {
         /**
          * Crea una transaccion de pigcoins 
          * Visualiza la transaccion
-         */
+         
 
         System.out.println("\n" + "Ver transaccion" + "\n" +
                                   "==============="        );
@@ -59,7 +59,7 @@ public class App {
         /**
          * Crea el blockchain
          * y añade transacciones que crean moneda "pigcoins"
-         */
+         
 
         System.out.println("\n" + "Ver BlockChain" + "\n" + 
                                   "=============="        );
@@ -81,7 +81,7 @@ public class App {
         
         /**
          * Ve la transaccion de una posicion determinada del blockchain
-         */
+         
         
         Integer position = 1;
         System.out.println("\n" + "Ver Transaccion en posicion " + position.toString() + " del BlockChain" + "\n" + 
@@ -94,7 +94,7 @@ public class App {
          * el total de pigcoins que se han enviado,
          * que se han recibido
          * y el balance
-         */
+         
 
         System.out.println("\n" + "Ver el total de pigcoins de las dos wallet" + "\n" + 
                                   "=========================================="        );
@@ -110,7 +110,7 @@ public class App {
          * recibidas (aquellas que significan recibir pigcoins)
          * y enviadas (aquellas que envian pigcoins)
          * y mostrarlas
-         */
+         
         
         System.out.println("\n" + "Ver las transacciones ENTRANTES de la wallet_1" + "\n" + 
                                   "=============================================="        );
@@ -134,7 +134,7 @@ public class App {
         /**
          * Recargamos la wallet_1
          * y visualizamos el blockchain
-         */
+         
         
         System.out.println("\n" + ">>>>>>>>>>>> RECARGA WALLET_1 >>>>>>>>>>>>" + "\n");
         
@@ -181,7 +181,7 @@ public class App {
          *       }
          * 
          * A continuacion se detalla la responsabilidad de cada metodo.
-         */
+         
         
         System.out.println("\n" + ">>>>>>>>>>>> Wallet_1 envia transaccion de pigcoins a wallet_2 >>>>>>>>>>>>" + "\n");
 
@@ -189,7 +189,7 @@ public class App {
          * Primero has de recolectar los suficientes pigcoins de tu wallet
          * Para ello has de eliminar de las transacciones entrantes de la wallet
          * las que ya se han utilizado para enviar pigcoins
-         */       
+                
 
         /**
          * Los pigcoins son indivisibles, asi que si necesitas 5.2 y no tienes
@@ -200,7 +200,7 @@ public class App {
          * - otra transaccion de 10 - 5.2 = 4.8 a ti mismo/a
          * Ten cuidado: no puedes utilizar transacciones entrantes (pigcoins)
          * que ya hayas enviado con anterioridad o el blockchain rechazara las nuevas
-         */
+         
 
         Double pigcoins = 25d;
         Map<String, Double> consumedCoins = wallet_1.collectCoins(pigcoins);
@@ -210,7 +210,7 @@ public class App {
          * Una vez que recolectes los pigcoins (transacciones) de tu wallet
          * envialas al blockchain.
          * Debes firmar el mensaje con tu clave privada.
-         */
+         
         
         String message = "he roto la hucha :(";
         byte[] signedTransaction = wallet_1.signTransaction(message); // usa GenSig.sign()
@@ -219,14 +219,14 @@ public class App {
         /**
          *  wallet.sendCoins() invoca a 
          *  bChain.processTransactions(wallet_1.getAddress(), wallet_2.getAddress(), consumedCoins, message, signedTransaction);
-         */
+         
 
         /**
          * El blockchain debe chequear que las transacciones entrantes no proceden
          * de transacciones que ya se han utilizado (gastado), mediante el metodo:
          * 
          * boolean bChain.isConsumedCoinValid(consumedCoins);
-         */
+         
                   
         /** 
          * El blockchain debe chequear que las transacciones sean autenticas, 
@@ -235,7 +235,7 @@ public class App {
          * boolean bChain.isSignatureValid(public_Key, message, signedTransaction)
          * 
          * Este metodo usa GenSig.verify()
-         */
+         
         
         /**
          * Si el blockchain comprueba que los pigcoins que envias satisfacen 
@@ -244,7 +244,7 @@ public class App {
          * 
          * bChain.processTransactions(wallet_1.getAddress(), wallet_2.getAddress(), consumedCoins, message, signedTransaction);
          * bChain.createTransaction(pKey_sender, pKey_recipient, consumedCoins,message, signedTransaction);
-         */
+         
 
         System.out.println("\n" + "Ver el total de pigcoins de las dos wallet" + "\n" + 
                                   "=========================================="            );
@@ -294,5 +294,6 @@ public class App {
         wallet_2.loadInputTransactions(bChain);
         wallet_2.loadOutputTransactions(bChain);
         System.out.println(wallet_2.toString());
+        */
     }
 }
