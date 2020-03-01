@@ -26,7 +26,7 @@ public class App {
          * Crea una segunda wallet, esta vez generando sus claves
          * con un metodo wallet.generateKeyPair() que encapsula
          * el codigo de la anterior historia de usuario
-         
+        */
 
         Wallet wallet_2 = new Wallet();
         wallet_2.generateKeyPair();
@@ -35,7 +35,7 @@ public class App {
 
         /**
          * Visualiza las Wallet 1 y 2
-         
+        */
         
         System.out.println("\n" + "Ver Wallets 1 y 2" + "\n" + 
                                   "================="        );
