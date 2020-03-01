@@ -13,8 +13,8 @@ public class Wallet {
     private Double total_input = 0d;
     private Double total_output = 0d;
     private Double balance = 0d;
-    private List<Transactions> inputTransactions = new ArrayList<Transactions>();
-    private List<Transactions> outputTransactions = new ArrayList<Transactions>();
+    private List<Transaction> inputTransactions = new ArrayList<Transaction>();
+    private List<Transaction> outputTransactions = new ArrayList<Transaction>();
 
 
 	void setSK(PrivateKey privateKey) {
