@@ -23,7 +23,27 @@ public class Transaction {
         Double pigcoinsD = Double.valueOf(pigcoins);
         this.pigcoins = pigcoinsD;
         this.message = message;
+    }
 
+    /**
+     * @return the pKey_recipient
+     */
+    public PublicKey getpKey_recipient() {
+        return pKey_recipient;
+    }
+
+    /**
+     * @return the pKey_sender
+     */
+    public PublicKey getpKey_sender() {
+        return pKey_sender;
+    }
+    
+    /**
+     * @return the pigcoins
+     */
+    public Double getPigcoins() {
+        return pigcoins;
     }
 
     @Override

@@ -81,7 +81,7 @@ public class App {
         
         /**
          * Ve la transaccion de una posicion determinada del blockchain
-         
+        */
         
         Integer position = 1;
         System.out.println("\n" + "Ver Transaccion en posicion " + position.toString() + " del BlockChain" + "\n" + 
@@ -94,7 +94,7 @@ public class App {
          * el total de pigcoins que se han enviado,
          * que se han recibido
          * y el balance
-         
+        */
 
         System.out.println("\n" + "Ver el total de pigcoins de las dos wallet" + "\n" + 
                                   "=========================================="        );

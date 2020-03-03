@@ -23,7 +23,26 @@ public class Wallet {
 
 	void setAddress(PublicKey adress) {
         this.address = adress;
-	}
+    }
+    
+    void updateBalance() {
+
+        this.balance = this.total_input - this.total_output;
+    }
+
+    /**
+     * @param total_input the total_input to set
+     */
+    public void setTotal_input(Double total_input) {
+        this.total_input = total_input;
+    }
+
+    /**
+     * @param total_output the total_output to set
+     */
+    public void setTotal_output(Double total_output) {
+        this.total_output = total_output;
+    }
 
     /**
      * @return the adress
@@ -47,5 +66,14 @@ public class Wallet {
                 "Balance = " + balance 
                 + "\n";
     }
+
+	public void loadCoins(BlockChain bChain) {
+        List<Double> sendsAndRecieves = bChain.loadWallet(address);
+        for(int i = 0 ; i < sendsAndRecieves.size(); i++){
+            if(i == 0)setTotal_output(sendsAndRecieves.get(i));
+            if(i == 1)setTotal_input(sendsAndRecieves.get(i));
+        updateBalance();
+        }
+	}
 
 }
