@@ -2,9 +2,7 @@ package edu.elsmancs;
 
 import java.security.PublicKey;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class BlockChain {
 
@@ -36,4 +34,20 @@ public class BlockChain {
         sendsAndRecieves.add(recieve);
         return sendsAndRecieves;
     }
+
+	public List<Transaction> loadOutputTransactions(PublicKey address) {
+        List<Transaction> senders = new ArrayList<Transaction>();
+        for (Transaction transaction : bchain){
+            if (transaction.getpKey_sender() == address) senders.add(transaction);
+        }
+		return senders;
+	}
+
+	public List<Transaction> loadInputTransactions(PublicKey address) {
+        List<Transaction> recieveds = new ArrayList<Transaction>();
+        for (Transaction transaction : bchain){
+            if (transaction.getpKey_recipient() == address) recieveds.add(transaction);
+        }
+		return recieveds;
+	}
 }

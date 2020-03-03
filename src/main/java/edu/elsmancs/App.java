@@ -110,7 +110,7 @@ public class App {
          * recibidas (aquellas que significan recibir pigcoins)
          * y enviadas (aquellas que envian pigcoins)
          * y mostrarlas
-         
+        */
         
         System.out.println("\n" + "Ver las transacciones ENTRANTES de la wallet_1" + "\n" + 
                                   "=============================================="        );

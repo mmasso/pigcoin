@@ -51,6 +51,20 @@ public class Wallet {
         return address;
     }
 
+    /**
+     * @return the inputTransactions
+     */
+    public List<Transaction> getInputTransactions() {
+        return inputTransactions;
+    }
+
+    /**
+     * @return the outputTransactions
+     */
+    public List<Transaction> getOutputTransactions() {
+        return outputTransactions;
+    }
+
 	public void generateKeyPair() {
         KeyPair pair = GenSig.generateKeyPair();
         this.setSK(pair.getPrivate());
@@ -74,6 +88,17 @@ public class Wallet {
             if(i == 1)setTotal_input(sendsAndRecieves.get(i));
         updateBalance();
         }
+    }
+
+
+	public void loadInputTransactions(BlockChain bChain) {
+        List<Transaction> inputTransactions = bChain.loadInputTransactions(address);
+        this.inputTransactions = inputTransactions;
+	}
+
+	public void loadOutputTransactions(BlockChain bChain) {
+        List<Transaction> outputTransactions = bChain.loadOutputTransactions(address);
+        this.outputTransactions = outputTransactions;
 	}
 
 }
