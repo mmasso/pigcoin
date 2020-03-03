@@ -46,7 +46,7 @@ public class App {
         /**
          * Crea una transaccion de pigcoins 
          * Visualiza la transaccion
-         
+        */
 
         System.out.println("\n" + "Ver transaccion" + "\n" +
                                   "==============="        );
@@ -59,7 +59,7 @@ public class App {
         /**
          * Crea el blockchain
          * y añade transacciones que crean moneda "pigcoins"
-         
+        */
 
         System.out.println("\n" + "Ver BlockChain" + "\n" + 
                                   "=============="        );
