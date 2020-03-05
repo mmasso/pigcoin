@@ -99,6 +99,40 @@ public class Wallet {
 	public void loadOutputTransactions(BlockChain bChain) {
         List<Transaction> outputTransactions = bChain.loadOutputTransactions(address);
         this.outputTransactions = outputTransactions;
-	}
+    }
+    
+    public boolean isSignatureValid(PublicKey pKey_sender, String message, byte[] signedTransaction) {
+        return GenSig.verify(pKey_sender, message, signedTransaction);
+    }
+
+    public List<Transaction> collectCoins(double pigcoins) {
+        List<Transaction> posibleTransactions = this.inputTransactions;
+        for (Transaction InputTransaction : this.inputTransactions) {
+            if(this.outputTransactions.contains(InputTransaction)){
+                posibleTransactions.remove(InputTransaction);
+            }
+        }
+        List<Transaction> validTransactions = new ArrayList<>();
+        for (Transaction vTransaction: posibleTransactions) {
+            if(vTransaction.getPigcoins() == pigcoins){
+                validTransactions.add(vTransaction);
+            }
+        }
+       
+        Double validPigcoinTransaction = 0d;
+        for(Transaction vTransaction: posibleTransactions){
+            if(vTransaction.getPigcoins()< pigcoins & validPigcoinTransaction<pigcoins){
+                validPigcoinTransaction += vTransaction.getPigcoins();
+            }
+            else{
+                validTransactions.remove(vTransaction);
+            }
+        }
+        if(validPigcoinTransaction > pigcoins){
+
+        }
+        
+        return null;
+    }
 
 }
